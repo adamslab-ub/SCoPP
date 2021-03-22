@@ -1,0 +1,10 @@
+pyDOE
+networkx
+mlrose
+scikit-learn
+shapely
+scipy
+matplotlib
+numpy
+seaborn
+pandas
