@@ -2,8 +2,8 @@
 This code contains examples of how to call and use the SCoPP-Monitoring module.
 """
 # Import the necessary modules:
-from Swarm_Surveillance.SCoPP import monitoring_algorithms
-from Swarm_Surveillance.SCoPP import environments as envs
+import monitoring_algorithms
+import environments as envs
 
 # Initialize environment class
 environment = envs.Debugger()
