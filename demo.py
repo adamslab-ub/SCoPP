@@ -9,7 +9,7 @@ import environments as envs
 environment = envs.Debugger()
 
 # Initialize monitoring algorithm instance
-way_point_allocator = monitoring_algorithms.QLB(5, environment, plot="full")
+way_point_allocator = monitoring_algorithms.QLB(environment, number_of_robots=5,plot="full")
 
 # Run the algorithm on the given environment and display all information
 paths = way_point_allocator.run(info="verbose")
