@@ -6,13 +6,13 @@ from sklearn.cluster import KMeans
 from sklearn.cluster import MiniBatchKMeans
 import sklearn.neighbors as skn
 from math import sqrt, tan, radians
-from Swarm_Surveillance.SCoPP import latlongcartconv as lc
+import latlongcartconv as lc
 import copy
 import time
 import pickle
 import networkx as nx
-import mlrose
-from Swarm_Surveillance.SCoPP import SCoPP_settings
+#import mlrose              #use this only if the planner is TSP. 
+import SCoPP_settings
 import random
 
 
