@@ -20,21 +20,73 @@ attributes:
 """
 
 
+
 class Debugger:
     """Robot parameter Class for debugging. This is a simple polygon with a low total area to reduce computation time
     substantially, to make debugging much faster
     """
-
+    #topleft, top-right, bottom right, bottom_left of four corners
     def __init__(self):
-        self.starting_position = [[40.68251, -73.91134]]
-        self.boundary_points = [[40.68251, -73.91134], [40.68250, -73.90935],
-                                [40.68173, -73.90935], [40.68176, -73.91138]]
+        self.starting_position = [[42.99579812282404, -78.79714234436254]]
+        self.boundary_points = [[42.99579812282404, -78.79714234436254], [42.99550965905353, -78.79662993046371],
+                                 [42.99529185937717, -78.79684713356913],[42.99559340277251, -78.79739531003655]]
         self.geo_fencing_holes = None
-        self.robot_FOV = 150  # degrees
-        self.robot_operating_height = 2  # meters
-        self.robot_velocity = 10  # meters per second
+        self.robot_FOV = 20  # degrees
+        self.priority_points = []
+        self.robot_operating_height = 20  # meters
+        self.robot_velocity = 0.5  # meters per second
         self.save_path = "Debug/"
 
+class Debugger_soar:
+    """Robot parameter Class for debugging. This is a simple polygon with a low total area to reduce computation time
+    substantially, to make debugging much faster
+    """
+    #topleft, top-right, bottom right, bottom_left of four corners
+    def __init__(self):
+        self.starting_position = [[42.99565887451172, -78.79725646972656], [42.99542236328125, -78.79678344726562],
+                                 [ 42.995548248291016, -78.79731750488281]]
+        self.boundary_points = [[42.99565887451172, -78.79725646972656], [42.99542236328125, -78.79678344726562],
+                                 [42.99530029296875,  -78.79690551757812],[ 42.995548248291016, -78.79731750488281]]
+        self.geo_fencing_holes = None
+        self.robot_FOV = 20  # degrees
+        self.priority_points = []
+        self.robot_operating_height = 15  # meters
+        self.robot_velocity = 0.15  # meters per second
+        self.save_path = "Debug/"
+
+class soar_small:
+    """Robot parameter Class for debugging. This is a simple polygon with a low total area to reduce computation time
+    substantially, to make debugging much faster
+    """
+    #topleft, top-right, bottom right, bottom_left of four corners
+    def __init__(self):
+        self.starting_position = [[ 42.99565887451172, -78.79724884033203], [42.99543762207031, -78.79678344726562],
+                                 [ 42.99557113647461, -78.7972640991211]]
+        self.boundary_points = [[ 42.99565887451172, -78.79724884033203], [42.99543762207031, -78.79678344726562],
+                                 [42.99534225463867,  -78.7968978881836],[ 42.99557113647461, -78.7972640991211]]
+        self.geo_fencing_holes = None
+        self.robot_FOV = 20  # degrees
+        self.priority_points = []
+        self.robot_operating_height = 15  # meters
+        self.robot_velocity = 0.5  # meters per second
+        self.save_path = "Debug/"
+
+class soar_big:
+    """Robot parameter Class for debugging. This is a simple polygon with a low total area to reduce computation time
+    substantially, to make debugging much faster
+    """
+    #topleft, top-right, bottom right, bottom_left of four corners
+    def __init__(self):
+        self.starting_position = [[ 42.99565887451172, -78.79724884033203], [42.99543762207031, -78.79678344726562],[ 42.99557113647461, -78.7972640991211]
+                                 ]
+        self.boundary_points = [[ 42.99565887451172, -78.79724884033203], [42.99543762207031, -78.79678344726562],
+                                 [42.99534225463867,  -78.7968978881836],[ 42.99557113647461, -78.7972640991211]]
+        self.geo_fencing_holes = None
+        self.robot_FOV = 20  # degrees
+        self.priority_points = []
+        self.robot_operating_height = 14  # meters
+        self.robot_velocity = 0.5  # meters per second
+        self.save_path = "Debug/"
 
 class VeryLargeLafayetteFLood:
     def __init__(self, UAV):
@@ -45,6 +97,7 @@ class VeryLargeLafayetteFLood:
                                 [30.35519, -92.00796],
                                 [30.31936, -92.00466],
                                 [30.25465, -91.99934]]
+        self.priority_points = [[30.27665, -91.94891], [30.31936, -92.00467], [30.25465, -91.99934]]
         self.geo_fencing_holes = []
         self.save_path = "VeryLargeLafayetteFlood/"
         if UAV == 0:  # Testing
@@ -81,7 +134,7 @@ class SmallLafayetteFLood:
                                 [30.2418, -92.1472],
                                 [30.243, -92.1501],
                                 [30.245, -92.1516]]
-
+        self.priority_points = [[30.24245, -92.1480], [30.24645, -92.1500]] #Added 7.5.2021 for Priority_CPP
         self.starting_position = [[30.2436, -92.145]]
         if mode:
             # Optimal Specs
@@ -122,7 +175,10 @@ class SmallLafayetteFLood:
                 else:
                     self.save_path = "SmallLafayetteFlood/discontinuities/"
         else:
-            self.geo_fencing_holes = []
+            self.geo_fencing_holes = [
+                    [[30.2465, -92.1481], [30.2454, -92.1474], [30.2446, -92.1486], [30.2452, -92.1498], [30.2463, -92.1494]]
+                ] #Added for priority_cpp on 11.9.2021
+            # self.geo_fencing_holes = []
             self.save_path = "SmallLafayetteFlood/"
             if UAV == 0:  # Map Comparison
                 self.robot_FOV = 105  # degrees
@@ -166,6 +222,7 @@ class MediumLafayetteFLood:
                                 [30.23530, -92.04290],
                                 [30.23480, -92.03470],
                                 [30.24290, -92.03210]]
+        self.priority_points = []
         self.geo_fencing_holes = []
         if mode:
             if mode == "dispatchers_T1":
@@ -244,6 +301,7 @@ class LargeLafayetteFLood:
                                 [30.27760, -92.13980],
                                 [30.27460, -92.13650],
                                 [30.27330, -92.13050]]
+        self.priority_points = [[30.27570, -92.12450],[30.28950, -92.13030]]
         self.geo_fencing_holes = []
 
         if mode:
@@ -458,7 +516,7 @@ class HollandNewYorkAgriculture:
 
 class Baseline_Envirnonment:
     def __init__(self, solver):
-        self.starting_position = [[37.53607, 15.06927]]
+        self.starting_position = [[37.53643702449349, 15.069613435742363]]     #37.53607, 15.06927 #[37.53643702449349, 15.069613435742363]
         self.boundary_points = [[37.53685, 15.06921],
                                 [37.53682, 15.07013],
                                 [37.53599, 15.07011],
@@ -472,6 +530,7 @@ class Baseline_Envirnonment:
             [[37.53683, 15.06952], [37.53674, 15.06969], [37.53665, 15.06968], [37.53665, 15.06957], [37.53656, 15.06957], [37.53656, 15.06950]],
             [[37.53674, 15.06976], [37.53674, 15.06984], [37.53674, 15.06990], [37.53665, 15.06993], [37.53656, 15.06988], [37.53656, 15.06983], [37.53656, 15.06975]]
             ]
+        self.priority_points = []
         self.robot_FOV = 5 # degrees
         self.robot_operating_height = 40  # meters
         self.robot_velocity = 4  # meters per second
@@ -480,7 +539,7 @@ class Baseline_Envirnonment:
         elif solver == "baseline":
             self.save_path = "Baseline_Environment/baseline_runs/"
 
-
+            #[37.536137943298485, 15.07003809740479],[37.53610183746795, 15.06960865049789]
 
 class BrooklynInitialTest:
     def __init__(self, solver):
@@ -554,3 +613,36 @@ class SanAntonioFarming:
         self.robot_operating_height = 10  # meters
         self.robot_velocity = 10  # meters per second
         self.save_path = "SanAntonioFarming/"
+
+class ShastaBuffaloSmall:
+    """Impromptu class made for the SHaSTA simulation
+    """
+    
+    def __init__(self):
+        import pandas as pd
+        import random
+
+        self.geo_filepath = "buildings.csv"
+        self.geo_holes = pd.read_csv(self.geo_filepath,converters={'lat':float,'lon':float})
+        self.coor_filepath = "coordinates.csv"
+        self.coordinates = pd.read_csv(self.coor_filepath,converters={'lat':float,'lon':float})
+
+
+        self.starting_position = [[42.28637979606,-79.57574650363985]]
+        self.boundary_points = [] 
+        for coordinate in range(len(self.coordinates['lat'])):
+            self.boundary_points.append( [self.coordinates['lat'][coordinate],self.coordinates['lon'][coordinate]] )
+        print(self.boundary_points,"\n",len(self.boundary_points))
+        while len(self.boundary_points) > 3:
+            print(len(self.boundary_points))
+            rand = random.randint(0,len(self.boundary_points))
+            self.boundary_points.pop(rand-1)
+        print("-----------------------------------------------------\n",self.boundary_points)
+        self.geo_fencing_holes = []
+        # for holes in range(len(self.geo_holes['lat'])):
+        #     self.geo_fencing_holes.append( [self.geo_holes['lat'][holes],self.geo_holes['lon'][holes]] )
+        self.priority_points = [[40.68245, -73.91100], [40.68245, -73.91110]]
+        self.robot_FOV = 150  # degrees
+        self.robot_operating_height = 2  # meters
+        self.robot_velocity = 4  # meters per second
+        self.save_path = "ShastaBuffaloSmall/"

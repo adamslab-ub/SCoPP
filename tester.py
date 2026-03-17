@@ -1,10 +1,13 @@
-from Swarm_Surveillance.SCoPP import monitoring_algorithms
+#from Swarm_Surveillance.SCoPP 
+import monitoring_algorithms
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 import pandas as pd
-from Swarm_Surveillance.SCoPP import environments as envs
-from Swarm_Surveillance.SCoPP import SCoPP_settings as QLBSet
+#from Swarm_Surveillance.SCoPP 
+import environments as envs
+#from Swarm_Surveillance.SCoPP 
+import SCoPP_settings as QLBSet
 
 """This codes purpose is to demonstrate the SCoPP Monitoring algorithm on multiple robot population sizes, and generate 
 visual results to illustrate its effectiveness. Actual usage of the SCoPP Monitoring algorithm only requires a few lines 

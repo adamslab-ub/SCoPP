@@ -15,7 +15,6 @@ print(min(computation_vector))
 print(np.std(computation_vector))
 # plt.hist(computation_vector, bins=30)
 # plt.show()
-sdfoiujh
 
 mode = "map"
 sampling_rate = 1/10

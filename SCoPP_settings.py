@@ -42,11 +42,12 @@ class algorithm:
             self,
             bias_factor=0.5,
             sampling_rate=1 / 10,
-            leaf_size=10,
+            leaf_size=1,
             partition_tolerance=None,
             partition_max_iter=10,
-            conflict_resolution_mode="bias",
-            planner="nn",
+            conflict_resolution_mode="bias", # If Not "bias" random-walk will be used for conflict resolution
+            planner="nn", # "nn" "random_walk" "tsp:brute" "tsp:ga" "Priority_CPP" "Elapsed_Priority" "True_Elapsed" "SCoPP_Surveillance" "SCoP3_Surveillance" "SCoPE_Surveillance"
+            tests=[None], # "ablate-partition", None or list of multiple tests to run. 
     ):
         self.bias_factor = bias_factor
         self.sampling_rate = sampling_rate
@@ -55,3 +56,4 @@ class algorithm:
         self.partition_max_iter = partition_max_iter
         self.conflict_resolution_mode = conflict_resolution_mode
         self.planner = planner
+        self.tests = tests
